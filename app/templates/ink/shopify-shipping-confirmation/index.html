@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width"/>
+   <!-- build:css css/tidy.css -->
+	<link rel="stylesheet" href="assets/css/style.css">
+  <!-- /build -->
+</head>
+<body>
+	<table class="body">
+		<tr>
+			<td class="center" align="center" valign="top">
+        <center>
+
+          <!-- add the messages to view on the web and to add address -->
+          <table class="row">
+            <tr>
+              <td class="center" align="center">
+                <center>
+
+                  <table class="container">
+                    <tr>
+                      <td class="wrapper last">
+
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="nine sub-columns last" style="text-align:left;background: #081a33;">
+                              <span class="template-label">Add <a href="mailto:{{shop.email}}" style="text-decoration:none;">{{shop.email}}</a> to your address book.</span>
+                            </td>
+                            <td class="three sub-columns last" style="text-align:right;background: #081a33;">
+                              <span class="template-label"><a href="{{ shop.url }}/account/login">View order {{order_name}} </a></span>
+                            </td>
+                            
+                          </tr>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </center>
+              </td>
+            </tr>
+          </table>
+
+          
+
+          <table class="container">
+            <tr>
+              <td>
+
+                <!-- content start -->
+                <table class="row" style="background-color: #061932">
+                  <tr>
+                    <td class="wrapper last">
+                      <table class="twelve columns">
+                        <tr>
+                          <td style="background-color: #061932">
+                            <img width="130" height="42" src="http://placehold.it/130x42" alt="mia piuma" style="font-family: 'Helvetica', Arial;sans-serif;font-size: 21px;color: #c6cbd0;line-height: 24px;text-align:center;width: 130px;height: 42px;" />
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table class="container">
+            <tr>
+              <td style="padding: 0 15px;">
+                
+                <!-- introduction -->
+                <table class="row">
+                  <tr>
+                    <!-- introduction -->
+                    <td class="wrapper last">
+                      <table class="twelve columns">
+                        <tr>
+                          <td class="content">
+                            {% if billing_address.name %}
+                              <p class="lead" style="margin-bottom: 10px;">Dear {{ billing_address.name }},</p>
+                            {% endif %}
+                            <p>We're pleased to confirm that your order for a more stylish sleep is now on its way.</p>
+                            {% if fulfillment.item_count == item_count %}
+                              <p>Your items from order {{ name }} that have shipped include:</p>
+                            {% elsif fulfillment_status == 'fulfulled' %}
+                              <p>Additional items from your order {{ name }} that have shipped include:</p>
+                            {% else %}
+                              <p>Your remaining items from your order {{ name }} that have shipped include:</p>
+                            {% endif %}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- order items table -->
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last">
+                      <table class="twelve columns order-details">
+                       
+                        
+                        <tr>
+                          <td class="left heading first six sub-columns">item</td>
+                          <td class="center heading three sub-columns">quantity</td>
+                          <td class="right heading last three sub-columns">price</td>
+                        </tr>
+                        
+                        <!-- add in the products -->
+                        {% for line in fulfillment.fulfillment_line_items %}
+                        <tr>
+                          <td class="wrapper last" colspan="3">
+                            <table class="product-details twelve columns">
+                              <tr>
+
+                                <td class="product-info">
+                                  
+                                  <table class="product-detail">
+                                    <tr>
+                                      <td><img class="product-image left" width="50" height="67" src="{{ line.line_item.product.featured_image | product_img_url }}" alt="{{ shop.name }}-{{ line.title }}" style="font-family: 'Helvetica', Arial;sans-serif;font-size: 14px;color: #c6cbd0;line-height: 18px;text-align:center;width: 50px;height: 67px;" /></td>
+                                      <td>
+                                        <table>
+                                          <tr><td class="product-title" colspan="3">{{ line.line_item.title }}</td></tr>
+                                        </table>
+                                      </td>
+                                     </tr> 
+                                  </table>
+                                </td>
+                                <td class="product-quantity center">{{ line.line_item.quantity }}</td>
+                                <td class="product-price right">{{ line.line_item.price | money }}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        {% endfor %}<!-- end of line in fulfillment.fulfillment_line_items -->
+
+                      </table><!-- end or order-details -->
+                    </td>
+                  </tr>
+                </table>
+                <!-- order items table -->
+
+                <table class="padder">
+                  <tr>
+                    <td style="padding: 20px 0">
+                    </td>
+                  </tr>
+                </table>
+
+                {% if requires_shipping %}
+                <!-- start the shipping and order pricing -->
+                <table class="row order-ship">
+                  <tr>
+                    <td class="wrapper">
+
+                      <table class="seven columns shipping">
+                        
+                        <tr>
+                          <td class="header">
+                            <h3>your items are being shipped</h3>
+                            <h3>{% if fulfillment.tracking_company %}via {{ fulfillment.tracking_company }} {% endif %}to:</h3>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <table class="address">
+                              <tr><td class="name">{{ shipping_address.name}}</td></tr>
+                              <tr><td class="street">{{ shipping_address.street}}</td></tr>
+                              <tr><td class="city">{{ shipping_address.city}}, {{ shipping_address.province}} {{ shipping_address.zip}}</td></tr>
+                              <tr><td class="country">{{ shipping_address.country}}</td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                        {% if fullfillment_status !='fulfilled' %}
+                        <tr>
+                          <td>
+                            <p style="margin-bottom: 20px;">We'll send you a confirmation email when remaining items from your order ship.</p>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                          <td class="thanks" style="padding-bottom: 20px;">
+                            <p>Thank You!<br />
+                              <strong>The mia piuma team</strong>
+                            </p>
+                          </td>
+                        </tr>
+                      </table><!-- end of the eight columns-->
+                    </td>
+
+                    {% if fulfillment.tracking_numbers.size > 0 %}
+                    <td class="wrapper last">
+                      <table class="five columns pricing-total">
+                        <tr>
+                          <td>
+                            <h3>track your order:</h3>
+                          </td>
+                        </tr>
+                        {% for tracking_numbers in fulfillment.tracking_numbers %}
+                        <tr>
+                          <td>
+                            {% for tracking_url in fulfillment.tracking_urls %}
+                              <a href="{{ tracking_url }}" class="button" style="display:block">{% endfor %}
+                                {{ fulfillment.tracking_number }}
+                              {% for tracking_url in fulfillment.tracking_urls %}</a>{% endfor %}
+                          </td>
+                        </tr>
+                        {% endfor %}<!-- end of tracking numbers -->
+                      </table>
+
+                    </td>
+                    {% endif %}<!-- end the fulfillment.tracking_numbers -->
+                  </tr>
+                </table>
+                <!-- end of the shipping and order pricing -->
+                {% endif %}<!-- end of if to see if we require shipping -->
+                <!-- navigation -->
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last">
+                      <table class="twelve columns navigation">
+                        <tr>
+                          <td style="width: 25%"></td>
+                          <td class="content logo" align="center">
+                            
+                              <div class="display: inline-block;float:left">
+                                  <a href="#">
+                                      <img width="64" height="31" src="http://placehold.it/64x31" alt="shop" style="font-family: 'Helvetica', Arial;sans-serif;font-size: 15px;color: #0a1f3b;line-height: 18px;text-align:center;width: 64px;height: 31x;float: left" />
+                                  </a>
+                              </div>
+                         
+                              <div class="display: inline-block;float: left">
+                                  <img width="27" height="31" src="http://placehold.it/27x31" alt="" style="font-family: 'Helvetica', Arial;sans-serif;font-size: 15px;color: #0a1f3b;line-height: 18px;text-align:center;width: 27px;height: 31px;float: left" />
+                              </div>
+                          
+                              <div class="display: inline-block;float: left">
+                                <a href="#">
+                                  <img width="144" height="31" src="http://placehold.it/144x31" alt="nightstyle" style="font-family: 'Helvetica', Arial;sans-serif;font-size: 15px;color: #0a1f3b;line-height: 18px;text-align:center;width: 144px;height: 31px;float: left" />
+                                </a>
+                              </div>
+                            
+                          </td>
+                          <td style="width: 25%"></td>
+                        </tr>
+                        
+                        <tr>
+
+                          <td class="nav">
+                                <a href="#contact">
+                                  <img width="62" height="23" src="http://placehold.it/62x23" alt="contact" style="font-family: 'Helvetica', Arial;sans-serif;font-size: 14px;color: #0a1f3b;line-height: 18px;text-align:center;width: 62px;height: 23px;display:inline-block" />
+                                </a>
+                          </td>
+                          <td class="nav">
+                            
+                                <a href="#ordering-policies">
+                                  <img width="152" height="23" src="http://placehold.it/152x23" alt="ordering and policies" style="font-family: 'Helvetica', Arial;sans-serif;font-size: 14px;color: #0a1f3b;line-height: 18px;text-align:center;width: 152px;height: 23px;display:inline-block" />
+                                </a>
+                          </td>
+
+                          
+
+                          
+                          <td class="nav">
+                                <a href="#news">
+                                  <img width="45" height="23" src="http://placehold.it/45x23" alt="news" style="font-family: 'Helvetica', Arial;sans-serif;font-size: 14px;color: #0a1f3b;line-height: 18px;text-align:center;width: 45px;height: 23px;display:inline-block" />
+                                </a>
+                              
+                          </td>
+                        </tr>
+
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+
+              <!-- container end below -->
+              </td>
+            </tr>
+          </table>
+
+
+          <!-- Legal + Unsubscribe -->
+              
+              <table class="row footer">
+            <tr>
+              <td class="center" align="center">
+                <center>
+
+                  <table class="container">
+                    <tr>
+                      <td class="wrapper last">
+
+                        <table class="twelve columns">
+                          <tr>
+                            <td align="center">
+                          <center>
+                            <p class="center">If you have any questions, please <a href="mailto: {{ shop.email }}">email</a> or call Customer Service at 1-800-555-5555.</p>
+                          </center>
+                        </td>
+                            
+                          </tr>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </center>
+              </td>
+            </tr>
+          </table>
+
+
+        </center>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

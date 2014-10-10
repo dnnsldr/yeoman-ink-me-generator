@@ -1,0 +1,9 @@
+{
+  "name": "<%= projectName %>-Bower-Package",
+  "version": "0.0.0",
+  "description": "<%= projectName %> Bower Email templates based on Zurb Ink",
+  "dependencies": {
+    "ink": "~1.0.5"
+  }
+}
+

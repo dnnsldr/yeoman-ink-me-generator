@@ -1,0 +1,10 @@
+default: 
+	- 'watch'
+
+inkify:
+    - 'concurrent:first'
+    - 'concurrent:second'
+    - 'concurrent:third'
+    - 'concurrent:fourth'
+    - 'concurrent:fifth'
+    - 'concurrent:sixth'

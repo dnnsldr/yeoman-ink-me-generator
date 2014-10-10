@@ -1,0 +1,524 @@
+/**********************************************
+* Ink v1.0.5 - Copyright 2013 ZURB Inc        *
+**********************************************/
+
+/* Client-specific Styles & Reset */
+/* Order Confirmation Layout */
+
+body {
+  width: 100% !important;
+  min-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #081a33;
+}
+
+img {
+  outline: none;
+  text-decoration: none;
+  -ms-interpolation-mode: bicubic;
+  float: left;
+  clear: both;
+  display: block;
+}
+
+center {
+  width: 100%;
+  min-width: 600px;
+}
+
+a img {
+  border: none;
+}
+
+p {
+  margin: 0 0 5px 0px;
+  font-size: 14px;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td {
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  border-collapse: collapse !important;
+}
+
+table,
+tr,
+td {
+  padding: 0;
+  vertical-align: top;
+  text-align: left;
+}
+
+/* Responsive Grid */
+
+table.body {
+  height: 100%;
+  width: 100%;
+}
+
+table.container {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  text-align: inherit;
+}
+
+table.row {
+  padding: 0px;
+  width: 100%;
+  position: relative;
+}
+
+table.container table.row {
+  display: block;
+}
+
+td.wrapper {
+  position: relative;
+}
+
+table.columns {
+  margin: 0 auto;
+}
+
+table.columns td {
+  padding: 0px 0px 5px;
+}
+
+table.columns td.sub-columns {
+  padding-right: 10px;
+}
+
+td.sub-columns {
+  min-width: 0px;
+}
+
+table.row td.last,
+table.container td.last {
+  padding-right: 0px;
+}
+
+table.four {
+  width: 200px;
+}
+
+table.seven {
+  width: 350px;
+}
+
+table.twelve {
+  width: 600px;
+}
+
+table.twelve center {
+  min-width: 600px;
+}
+
+.body .columns .three {
+  width: 25%;
+}
+
+.body .columns .six {
+  width: 50%;
+}
+
+.body .columns .nine {
+  width: 75%;
+}
+
+.body .columns .twelve {
+  width: 100%;
+}
+
+table.columns td.content {
+  padding: 30px 15px;
+}
+
+table.columns.order-details {
+  background: #f2f2f2;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+}
+
+table.columns.order-details th {
+  padding: 8px 20px;
+  background-color: #e3e3e3;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+table.columns.order-details .date {
+  font-weight: normal;
+  white-space: nowrap;
+  text-transform: inherit;
+}
+
+table.columns.order-details td {
+  padding: 6px 10px 3px 10px;
+  vertical-align: middle;
+  line-height: 18px;
+}
+
+table.columns.order-details td.heading {
+  text-transform: uppercase;
+  color: #081a33;
+  border-top: none;
+  padding-top: 20px;
+}
+
+table.columns.order-details td.heading.first {
+  padding-left: 20px;
+}
+
+table.columns.order-details td.heading.last {
+  padding-right: 20px;
+}
+
+/*product details*/
+
+table.columns.order-details .product-details {
+  border-top: 1px solid #d4d4d4;
+}
+
+table.columns.order-details .product-details td.product-info {
+  width: 50%;
+}
+
+table.columns.order-details .product-details td.product-quantity {
+  width: 25%;
+}
+
+table.columns.order-details .product-details td.product-price {
+  width: 25%;
+}
+
+table.columns.order-details .product-details table.product-detail td {
+  border-top: none;
+  padding: 6px 6px 0 0;
+  vertical-align: top;
+}
+
+table.columns.order-details .product-image {
+  padding-left: 5px;
+  padding-right: 15px;
+}
+
+table.columns.order-details .product-title {
+  display: block;
+  padding-top: 14px;
+}
+
+table.columns.order-details .product-size,
+table.columns.order-details .product-spacer,
+table.columns.order-details .product-color {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+table.columns.order-details .product-spacer {
+  padding: 0 10px;
+  position: relative;
+  color: #999;
+}
+
+table.columns.order-details .product-size {
+  text-transform: uppercase;
+}
+
+/*shipping and billing*/
+
+table.order-ship {
+  margin-bottom: 20px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+table.columns.shipping {
+  padding-right: 35px;
+  border-right: 1px solid #d4d4d4;
+}
+
+table.columns.shipping h3 {
+  padding: 5px 20px 3px 20px;
+  background-color: #f2f2f2;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+table.columns.shipping td {
+  padding: 0 0 0 10px;
+}
+
+table.columns.shipping td.header {
+  padding: 0 35px 0 0;
+}
+
+table.columns.shipping .address td.name {
+  padding-top: 10px;
+}
+
+table.columns.shipping .address td.country {
+  padding-bottom: 25px;
+}
+
+table.columns.pricing-total {
+  margin-left: 25px;
+}
+
+table.columns.pricing-total td {
+  padding: 5px 10px 5px 30px;
+}
+
+table.columns.pricing-total .heading {
+  padding-right: 5px;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+
+table.columns.pricing-total .total {
+  border-top: 1px solid #d4d4d4;
+  font-weight: 900;
+}
+
+table.columns.navigation {
+  margin-bottom: 25px;
+}
+
+table.columns.navigation td.nav {
+  padding: 0 4%;
+  text-align: center;
+}
+
+table.columns.navigation td.nav a {
+  display: inline-block;
+  text-align: center;
+}
+
+table.columns.navigation td.nav img {
+  margin: 0 auto;
+}
+
+table.columns.navigation td.logo div {
+  display: inline-block !important;
+  float: left;
+}
+
+table.columns.navigation td.logo {
+  width: 50%;
+  padding: 30px 15px 30px 30px;
+}
+
+/* Block Grid */
+
+/* Alignment & Visibility Classes */
+
+td.center,
+.center {
+  text-align: center;
+}
+
+/* Typography */
+
+body,
+table.body,
+h3,
+p,
+td {
+  color: #000000;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  line-height: 1.6;
+}
+
+h3 {
+  word-break: normal;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+body,
+table.body,
+p,
+td {
+  font-size: 14px;
+  line-height: 26px;
+}
+
+p.lead {
+  font-weight: 900;
+}
+
+small {
+  font-size: 10px;
+}
+
+a {
+  color: #6282a5;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #2795b6 !important;
+}
+
+a:active {
+  color: #2795b6 !important;
+}
+
+a:visited {
+  color: #2ba6cb !important;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+/* Panels */
+
+/* Buttons */
+
+/* Outlook First */
+
+/*  Media Queries */
+
+@media only screen and (max-width: 600px) {
+  table[class="body"] img {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  table[class="body"] center {
+    min-width: 0 !important;
+  }
+
+  table[class="body"] .container {
+    width: 95% !important;
+  }
+
+  table[class="body"] .row {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  table[class="body"] .wrapper {
+    padding-right: 0 !important;
+  }
+
+  table[class="body"] .columns {
+    table-layout: fixed !important;
+    float: none !important;
+    width: 100% !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+
+  table[class="body"] table.columns td {
+    width: 100%;
+  }
+
+  table[class="body"] .columns td.three {
+    width: 25% !important;
+  }
+
+  table[class="body"] .columns td.nine {
+    width: 75% !important;
+  }
+
+  table.columns.shipping {
+    border-right: none;
+  }
+
+  table.columns.order-details td.heading {
+    font-size: 12px;
+  }
+
+  table[class="body"] .columns.product-details {
+    table-layout: inherit !important;
+  }
+
+  table.columns.order-details .product-details td {
+    width: 40%;
+  }
+
+  table[class="body"] .columns.pricing-total {
+    margin-left: 5px;
+  }
+
+  table.columns.navigation td.nav {
+    float: left;
+    text-align: left;
+  }
+
+  table.columns.order-details .product-details td.product-title,
+  table.columns.order-details .product-details td.product-size,
+  table.columns.order-details .product-details td.product-color {
+    width: 100%;
+  }
+
+  table.columns.order-details .product-spacer {
+    display: none;
+  }
+
+  table.columns.pricing-total .heading {
+    font-size: 12px;
+  }
+
+  table.columns.pricing-total td {
+    padding: 5px 10px 5px 5px;
+  }
+}
+
+/*end of media queries*/
+
+.template-label {
+  color: #42546d;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 10px 10px 0;
+  display: inline-block;
+}
+
+.header {
+  background: #fff;
+}
+
+.footer .wrapper {
+  background-color: #081a33;
+  padding: 20px 0 40px;
+}
+
+.footer table.container {
+  background-color: #081a33;
+}
+
+.footer p {
+  margin-bottom: 5px;
+  color: #cccccc;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.footer a {
+  text-decoration: none;
+}

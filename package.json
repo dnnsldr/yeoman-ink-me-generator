@@ -1,0 +1,43 @@
+{
+  "name": "generator-ink-me",
+  "version": "1.0.0",
+  "description": "Yeoman generator to create Email templates based on Zurb Ink. Gets rid of unused CSS, inlines CSS, FTP's images to hosting provider, replaces image url references, uploads tests to Litmus.",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "dnnsldr/yeoman-ink-me-generator",
+  "author": {
+    "name": "dnnsldr",
+    "email": "delder@riester.com",
+    "url": "https://github.com/dnnsldr"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "zurb",
+    "ink",
+    "ftp",
+    "litmus",
+    "email"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.17.0",
+    "chalk": "^0.5.0",
+    "yosay": "^0.3.0",
+    "request": "~2.34.0",
+    "inquirer": "~0.7.3"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
